@@ -3,20 +3,23 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import * as TodosActions from './actions/todos';
-import TodoList from './components/TodoList';
-import TodoAdd from './components/TodoAdd';
-import '../css/style.css';
+import * as TodosActions from '../actions/todos';
+import FilterContainer from '../containers/FilterContainer';
+import TodoList from '../components/TodoList';
+import TodoAdd from '../components/TodoAdd';
+import '../../css/style.css';
 
 class App extends Component {
     render() {
-        const { todos, todosActions } = this.props;
+        const { filter, todos, todosActions } = this.props;
         return (
             <div>
                 <h1 className={classNames('title')}>React Todo List</h1>
                 <TodoAdd addTask={todosActions.addTask} />
+                <FilterContainer />
                 <TodoList
                     todos={todos}
+                    filter={filter}
                     saveTask={todosActions.editTask}
                     deleteTask={todosActions.deleteTask}
                     completeTask={todosActions.toggleTask}
