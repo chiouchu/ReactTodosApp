@@ -12,7 +12,7 @@ class TodoItem extends Component {
     }
 
     render() {
-        const { todo, idx } = this.props;
+        const { todo, idx, deleteTask } = this.props;
         if (this.state.isEditing) {
             return (
                 <tr>
@@ -30,7 +30,7 @@ class TodoItem extends Component {
                 <td>{todo.task}</td>
                 <td>
                     <button onClick={this._onEditClick}>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={() => deleteTask(idx)}>Delete</button>
                 </td>
             </tr>
         );

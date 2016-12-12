@@ -26,6 +26,7 @@ class App extends Component {
         };
         this._saveTask = this._saveTask.bind(this);
         this._addTask = this._addTask.bind(this);
+        this._deleteTask = this._deleteTask.bind(this);
     }
 
     render() {
@@ -33,7 +34,11 @@ class App extends Component {
             <div>
                 <h1>React Todo List</h1>
                 <TodoAdd addTask={this._addTask} />
-                <TodoList todos={this.state.todos} saveTask={this._saveTask} />
+                <TodoList
+                    todos={this.state.todos}
+                    saveTask={this._saveTask}
+                    deleteTask={this._deleteTask}
+                />
             </div>
         );
     }
@@ -51,6 +56,12 @@ class App extends Component {
                 task: val,
                 isCompleted: false
             });
+        this.setState({ todos: newTodos });
+    }
+
+    _deleteTask(idx) {
+        let newTodos = [...this.state.todos];
+        newTodos.splice(idx, 1);
         this.setState({ todos: newTodos });
     }
 }
