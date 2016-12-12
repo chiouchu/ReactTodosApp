@@ -11,28 +11,27 @@ class TodoItem extends Component {
     }
 
     render() {
-        const todo = this.props;
+        const todo = this.props.todo;
 
         if (this.state.isEditing) {
             return (
                 <tr>
-                    <th><input type="text" defaultValue={task} /></th>
-                    <th>
+                    <td><input type="text" defaultValue={todo.task} /></td>
+                    <td>
                         <button>Save</button>
-                    </th>
                         <button onClick={this._onCancelClick}>Cancel</button>
+                    </td>
                 </tr>
             );
         }
 
         return (
             <tr>
-                <th>{todo.task}</th>
-                <th>
-                    <button>Edit</button>
+                <td>{todo.task}</td>
+                <td>
                     <button onClick={this._onEditClick}>Edit</button>
                     <button>Delete</button>
-                </th>
+                </td>
             </tr>
         );
     }
