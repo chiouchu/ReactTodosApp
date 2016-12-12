@@ -14,6 +14,7 @@ class TodoItem extends Component {
     render() {
         const { todo, idx, deleteTask, completeTask } = this.props;
         const taskStyle = {
+            color: todo.isCompleted ? '#888' : '#000',
             textDecoration: todo.isCompleted ? 'line-through' : ''
         };
         if (this.state.isEditing) {
