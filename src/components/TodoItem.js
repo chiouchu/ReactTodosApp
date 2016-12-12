@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
     render() {
+        const todo = this.props.todo;
         return (
             <tr>
-                <th>Finish today</th>
+                <th>{todo.task}</th>
                 <th>
                     <button>Edit</button>
                     <button>Delete</button>
