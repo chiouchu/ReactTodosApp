@@ -30,3 +30,7 @@ body {
     color: #888;
     text-decoration: line-through;
 }
+
+.filter {
+    margin-bottom: 30px;
+}
