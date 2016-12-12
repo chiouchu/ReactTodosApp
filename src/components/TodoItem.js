@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 class TodoItem extends Component {
     constructor(props) {
@@ -13,14 +14,14 @@ class TodoItem extends Component {
 
     render() {
         const { todo, idx, deleteTask, completeTask } = this.props;
-        const taskStyle = {
-            color: todo.isCompleted ? '#888' : '#000',
-            textDecoration: todo.isCompleted ? 'line-through' : ''
-        };
+        const taskClass = classNames({
+            task: true,
+            'task-completed': todo.isCompleted
+        });
         if (this.state.isEditing) {
             return (
                 <tr>
-                    <td><input type="text" data-idx={idx} defaultValue={todo.task} ref="editInput" /></td>
+                    <td><input type="text" data-idx={idx} defaultValue={todo.task} ref="editInput" className="edit" /></td>
                     <td>
                         <button onClick={this._onSaveClick}>Save</button>
                         <button onClick={this._onCancelClick}>Cancel</button>
@@ -32,7 +33,10 @@ class TodoItem extends Component {
         return (
             <tr>
                 <td>
-                    <span style={taskStyle} onClick={() => completeTask(idx)}>
+                    <span
+                        className={taskClass}
+                        onClick={() => completeTask(idx)}
+                    >
                         {todo.task}
                     </span>
                 </td>

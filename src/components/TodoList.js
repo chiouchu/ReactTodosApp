@@ -10,7 +10,7 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                <table>
+                <table className="todoTb">
                     <thead>
                         <tr>
                             <th>Todo</th>

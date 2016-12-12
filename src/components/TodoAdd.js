@@ -8,8 +8,8 @@ class TodoAdd extends Component {
 
     render() {
         return (
-            <div>
-                <input type="text" ref="addInput" />
+            <div className="add">
+                <input type="text" ref="addInput" className="edit" />
                 <button onClick={this._onAddClick}>Create</button>
             </div>
         );

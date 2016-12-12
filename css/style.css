@@ -1,0 +1,32 @@
+body {
+    background-color: #eafbff;
+}
+
+.title {
+    color: #2c2c2c;
+}
+
+.add {
+    margin: 20px 0;
+}
+
+.edit {
+    width: 180px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.todoTb th {
+    border-bottom: 1px solid #333;
+}
+
+.task {
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+}
+
+.task-completed {
+    color: #888;
+    text-decoration: line-through;
+}

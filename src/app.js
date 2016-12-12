@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import TodoList from './components/TodoList';
 import TodoAdd from './components/TodoAdd';
+import classNames from 'classnames';
+
+import '../css/style.css';
 
 const todos = [
     {
@@ -33,7 +36,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>React Todo List</h1>
+                <h1 className={classNames('title')}>React Todo List</h1>
                 <TodoAdd addTask={this._addTask} />
                 <TodoList
                     todos={this.state.todos}
