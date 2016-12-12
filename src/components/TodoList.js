@@ -26,11 +26,11 @@ class TodoList extends Component {
     }
 
     _renderItems() {
-        const todos = this.props.todos;
+        const { todos, saveTask } = this.props;
 
         let list = [];
         todos.forEach((todo, idx) => {
-            list.push(<TodoItem key={idx} todo={todo} />);
+            list.push(<TodoItem key={idx} idx={idx} todo={todo} saveTask={saveTask} />);
         });
         return list;
     }

@@ -24,6 +24,7 @@ class App extends Component {
         this.state = {
             todos
         };
+        this._saveTask = this._saveTask.bind(this);
     }
 
     render() {
@@ -31,9 +32,15 @@ class App extends Component {
             <div>
                 <h1>React Todo List</h1>
                 <TodoAdd />
-                <TodoList todos={this.state.todos} />
+                <TodoList todos={this.state.todos} saveTask={this._saveTask} />
             </div>
         );
+    }
+
+    _saveTask(idx, val) {
+        let newTodos = [...this.state.todos];
+        newTodos[idx] = Object.assign({}, newTodos[idx], { task: val });
+        this.setState({ todos: newTodos });
     }
 }
 
