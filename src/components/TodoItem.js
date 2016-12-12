@@ -6,6 +6,8 @@ class TodoItem extends Component {
         this.state = {
             isEditing: false
         };
+        this._onEditClick = this._onEditClick.bind(this);
+        this._onCancelClick = this._onCancelClick.bind(this);
     }
 
     render() {
@@ -17,8 +19,8 @@ class TodoItem extends Component {
                     <th><input type="text" defaultValue={task} /></th>
                     <th>
                         <button>Save</button>
-                        <button>Cancel</button>
                     </th>
+                        <button onClick={this._onCancelClick}>Cancel</button>
                 </tr>
             );
         }
@@ -28,10 +30,19 @@ class TodoItem extends Component {
                 <th>{todo.task}</th>
                 <th>
                     <button>Edit</button>
+                    <button onClick={this._onEditClick}>Edit</button>
                     <button>Delete</button>
                 </th>
             </tr>
         );
+    }
+
+    _onEditClick() {
+        this.setState({ isEditing: true });
+    }
+
+    _onCancelClick() {
+        this.setState({ isEditing: false });
     }
 }
 
