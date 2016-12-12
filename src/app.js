@@ -27,6 +27,7 @@ class App extends Component {
         this._saveTask = this._saveTask.bind(this);
         this._addTask = this._addTask.bind(this);
         this._deleteTask = this._deleteTask.bind(this);
+        this._completeTask = this._completeTask.bind(this);
     }
 
     render() {
@@ -38,6 +39,7 @@ class App extends Component {
                     todos={this.state.todos}
                     saveTask={this._saveTask}
                     deleteTask={this._deleteTask}
+                    completeTask={this._completeTask}
                 />
             </div>
         );
@@ -62,6 +64,12 @@ class App extends Component {
     _deleteTask(idx) {
         let newTodos = [...this.state.todos];
         newTodos.splice(idx, 1);
+        this.setState({ todos: newTodos });
+    }
+
+    _completeTask(idx) {
+        let newTodos = [...this.state.todos];
+        newTodos[idx] = Object.assign({}, newTodos[idx], { isCompleted: !newTodos[idx].isCompleted });
         this.setState({ todos: newTodos });
     }
 }

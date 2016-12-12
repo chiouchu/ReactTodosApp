@@ -12,7 +12,10 @@ class TodoItem extends Component {
     }
 
     render() {
-        const { todo, idx, deleteTask } = this.props;
+        const { todo, idx, deleteTask, completeTask } = this.props;
+        const taskStyle = {
+            textDecoration: todo.isCompleted ? 'line-through' : ''
+        };
         if (this.state.isEditing) {
             return (
                 <tr>
@@ -27,7 +30,11 @@ class TodoItem extends Component {
 
         return (
             <tr>
-                <td>{todo.task}</td>
+                <td>
+                    <span style={taskStyle} onClick={() => completeTask(idx)}>
+                        {todo.task}
+                    </span>
+                </td>
                 <td>
                     <button onClick={this._onEditClick}>Edit</button>
                     <button onClick={() => deleteTask(idx)}>Delete</button>
