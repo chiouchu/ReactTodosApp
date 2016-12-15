@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import createLogger from 'redux-logger';
 
 import todoApp from './reducers';
 import TodoAppContainer from './containers/TodoAppContainer';
 
-let store = createStore(todoApp);
+const middlewares = [];
+if (process.env.NODE_ENV === 'development') {
+    // logger only in development mode
+    const logger = createLogger({ duration:true });
+    middlewares.push(logger);
+}
+
+let store = createStore(
+    todoApp,
+    applyMiddleware(...middlewares)
+);
 
 ReactDOM.render(
     <Provider store={store}>
