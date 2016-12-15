@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
+import thunk from 'redux-thunk';
 
 import todoApp from './reducers';
 import TodoAppContainer from './containers/TodoAppContainer';
 
-const middlewares = [];
+const middlewares = [thunk];
 if (process.env.NODE_ENV === 'development') {
     // logger only in development mode
     const logger = createLogger({ duration:true });

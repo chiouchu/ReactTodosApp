@@ -8,6 +8,14 @@ export function addTask(task){
     };
 }
 
+export function addTaskAsync(task){
+    return (dispatch) => {
+        setTimeout(() => {
+            dispatch(addTask(task));
+        }, 1000);
+    };
+}
+
 export function editTask(idx, task){
     return {
         type: types.EDIT_TASK,

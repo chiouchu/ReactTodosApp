@@ -15,7 +15,7 @@ class App extends Component {
         return (
             <div>
                 <h1 className={classNames('title')}>React Todo List</h1>
-                <TodoAdd addTask={todosActions.addTask} />
+                <TodoAdd addTask={todosActions.addTaskAsync} />
                 <FilterContainer />
                 <TodoList
                     todos={todos}
