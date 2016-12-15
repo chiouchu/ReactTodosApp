@@ -4,8 +4,8 @@
   "description": "Reack todos tutorial",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
-    "prod": "webpack --progress --color",
+    "dev": "NODE_ENV=development node server.js",
+    "prod": "NODE_ENV=production webpack --progress --color",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ChiouChu",

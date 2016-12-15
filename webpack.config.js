@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-module.exports = {
+let webpackConfig = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, 'build'),
@@ -34,3 +34,20 @@ module.exports = {
         extensions: ['', '.js']
     }
 };
+
+// Plugins for different environment
+if (process.env.NODE_ENV === 'production') {
+    webpackConfig.plugins.push(
+        new webpack.DefinePlugin({
+            'process.env': { 'NODE_ENV': '"production"'}
+        })
+    );
+} else {
+    webpackConfig.plugins.push(
+        new webpack.DefinePlugin({
+            'process.env': { 'NODE_ENV': '"development"'}
+        })
+    );
+}
+
+module.exports = webpackConfig;
