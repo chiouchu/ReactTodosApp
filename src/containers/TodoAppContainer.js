@@ -7,15 +7,17 @@ import * as TodosActions from '../actions/todos';
 import FilterContainer from '../containers/FilterContainer';
 import TodoList from '../components/TodoList';
 import TodoAdd from '../components/TodoAdd';
+import Loading from '../components/Loading';
 import '../../css/style.css';
 
 class App extends Component {
     render() {
-        const { filter, todos, todosActions } = this.props;
+        const { filter, todos, loading, todosActions } = this.props;
         return (
             <div>
+                {loading ? <Loading /> : false}
                 <h1 className={classNames('title')}>React Todo List</h1>
-                <TodoAdd addTask={todosActions.addTaskAsync} />
+                <TodoAdd addTask={todosActions.addTask} />
                 <FilterContainer />
                 <TodoList
                     todos={todos}
@@ -32,7 +34,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
     return {
         todos: state.todos,
-        filter: state.filter
+        filter: state.filter,
+        loading: state.loading
     };
 };
 
