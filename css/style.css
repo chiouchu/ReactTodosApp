@@ -2,6 +2,19 @@ body {
     background-color: #eafbff;
 }
 
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    text-align: center;
+    padding-top: 30px;
+    font-size: 44px;
+    color: #FFF;
+}
+
 .title {
     color: #2c2c2c;
 }
