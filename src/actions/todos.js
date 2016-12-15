@@ -1,17 +1,31 @@
 import * as types from '../constants/ActionTypes';
 
 // action creator
-export function addTask(task){
+export function addTaskRequest(){
     return {
-        type: types.ADD_TASK,
+        type: types.ADD_TASK_REQUEST
+    };
+}
+
+export function addTaskSuccess(task){
+    return {
+        type: types.ADD_TASK_SUCCESS,
         task
     };
 }
 
-export function addTaskAsync(task){
+export function addTaskFailure(err){
+    return {
+        type: types.ADD_TASK_FAILURE,
+        err
+    };
+}
+
+export function addTask(task){
     return (dispatch) => {
+        dispatch(addTaskRequest());
         setTimeout(() => {
-            dispatch(addTask(task));
+            dispatch(addTaskSuccess(task));
         }, 1000);
     };
 }
