@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
+/* eslint "react/no-string-refs": "off", "jsx-a11y/no-static-element-interactions": "off" */
+
 class TodoItem extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +23,15 @@ class TodoItem extends Component {
         if (this.state.isEditing) {
             return (
                 <tr>
-                    <td><input type="text" data-idx={idx} defaultValue={todo.task} ref="editInput" className="edit" /></td>
+                    <td>
+                        <input
+                            type="text"
+                            data-idx={idx}
+                            defaultValue={todo.task}
+                            ref="editInput"
+                            className="edit"
+                        />
+                    </td>
                     <td>
                         <button onClick={this._onSaveClick}>Save</button>
                         <button onClick={this._onCancelClick}>Cancel</button>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+/* eslint "react/no-string-refs": "off" */
+
 class TodoAdd extends Component {
     constructor(props) {
         super(props);

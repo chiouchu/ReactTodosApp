@@ -1,25 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Filter extends Component {
-    render() {
-        const { filter, filterActions } = this.props;
-        return (
-            <div>
-                <button
-                  onClick={() => filterActions.setFilter('SHOW_ALL')}
-                  disabled={ filter === 'SHOW_ALL' }
-                >All</button>
-                <button
-                  onClick={() => filterActions.setFilter('SHOW_COMPLETED')}
-                  disabled={ filter === 'SHOW_COMPLETED' }
-                >Completed</button>
-                <button
-                  onClick={() => filterActions.setFilter('SHOW_UNCOMPLETED')}
-                  disabled={ filter === 'SHOW_UNCOMPLETED' }
-                >Uncompleted</button>
-            </div>
-        );
-    }
-}
+const Filter = function Filter(props) {
+    return (
+        <div>
+            <button
+                onClick={() => props.filterActions.setFilter('SHOW_ALL')}
+                disabled={props.filter === 'SHOW_ALL'}
+            >All</button>
+            <button
+                onClick={() => props.filterActions.setFilter('SHOW_COMPLETED')}
+                disabled={props.filter === 'SHOW_COMPLETED'}
+            >Completed</button>
+            <button
+                onClick={() => props.filterActions.setFilter('SHOW_UNCOMPLETED')}
+                disabled={props.filter === 'SHOW_UNCOMPLETED'}
+            >Uncompleted</button>
+        </div>
+    );
+};
 
 export default Filter;

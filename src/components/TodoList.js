@@ -28,7 +28,7 @@ class TodoList extends Component {
     _renderItems() {
         const { filter, todos, saveTask, deleteTask, completeTask } = this.props;
 
-        let list = [];
+        const list = [];
         todos.forEach((todo, idx) => {
             if (filter === 'SHOW_ALL' ||
                 (filter === 'SHOW_COMPLETED' && todo.isCompleted) ||

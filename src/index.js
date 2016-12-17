@@ -11,11 +11,11 @@ import TodoAppContainer from './containers/TodoAppContainer';
 const middlewares = [thunk];
 if (process.env.NODE_ENV === 'development') {
     // logger only in development mode
-    const logger = createLogger({ duration:true });
+    const logger = createLogger({ duration: true });
     middlewares.push(logger);
 }
 
-let store = createStore(
+const store = createStore(
     todoApp,
     applyMiddleware(...middlewares)
 );
