@@ -9,6 +9,14 @@ let webpackConfig = {
         filename: 'bundle.[hash].js'
     },
     module: {
+        preLoaders: [
+            {
+                test: /\.js?$/,
+                loader: 'eslint',
+                include: path.resolve(__dirname, 'src'),
+                exclude: /node_modules/
+            }
+        ],
         loaders: [
             {
                 test: /\.css$/,
