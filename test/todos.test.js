@@ -1,6 +1,11 @@
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import { expect } from 'chai';
 import * as types from '../src/constants/ActionTypes';
 import * as todos from '../src/actions/todos';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 describe('todos action testing', () => {
     it('should create an action to request adding task', () => {
@@ -36,7 +41,19 @@ describe('todos action testing', () => {
     });
 
     it('should create an action to add task', () => {
-        // ...
+        const task = 'Learn mocha';
+        const expectedActions = [
+            { type: types.ADD_TASK_REQUEST },
+            { type: types.ADD_TASK_SUCCESS, task }
+        ];
+
+        const store = mockStore({});
+        store.dispatch(todos.addTask(task));
+        setTimeout(() => {
+            expect(
+                store.getActions()
+            ).to.be.deep.equal(expectedActions);
+        }, 1000);
     });
 
     it('should create an action to edit task', () => {
