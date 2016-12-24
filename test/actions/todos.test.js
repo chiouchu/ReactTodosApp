@@ -1,8 +1,8 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { expect } from 'chai';
-import * as types from '../src/constants/ActionTypes';
-import * as todos from '../src/actions/todos';
+import * as types from '../../src/constants/ActionTypes';
+import * as todos from '../../src/actions/todos';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

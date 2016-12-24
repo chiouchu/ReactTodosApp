@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import * as types from '../src/constants/ActionTypes';
-import * as filter from '../src/actions/filter';
+import * as types from '../../src/constants/ActionTypes';
+import * as filter from '../../src/actions/filter';
 
 describe('filter action testing', () => {
     it('should create an action to set filter', () => {
