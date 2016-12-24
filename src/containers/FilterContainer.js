@@ -7,7 +7,7 @@ import Filter from '../components/Filter';
 
 /* eslint arrow-body-style: ["error", "always"] */
 
-const App = function App(props) {
+export const App = (props) => {
     return (
         <div className="filter">
             <Filter {...props} />

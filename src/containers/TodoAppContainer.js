@@ -12,7 +12,7 @@ import '../../css/style.css';
 
 /* eslint arrow-body-style: ["error", "always"] */
 
-const App = function App(props) {
+export const App = (props) => {
     return (
         <div>
             {props.loading ? <Loading /> : false}
