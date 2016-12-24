@@ -8,7 +8,7 @@
     "prod": "NODE_ENV=production webpack --progress --color",
     "lint": "eslint src; exit 0",
     "lint:report": "eslint src -o eslint-report.html -f html; exit 0",
-    "test": "mocha --compilers js:babel-core/register --recursive"
+    "test": "mocha --compilers js:babel-core/register --require test/helpers/css-null-compiler --recursive"
   },
   "author": "ChiouChu",
   "license": "MIT",
