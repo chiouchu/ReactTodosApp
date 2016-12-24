@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Filter = function Filter(props) {
+const Filter = (props) => {
     return (
         <div>
             <button
