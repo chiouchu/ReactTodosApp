@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Filter = (props) => {
-    return (
+const Filter = props =>
+    (
         <div>
             <button
                 onClick={() => props.filterActions.setFilter('SHOW_ALL')}
@@ -17,6 +17,5 @@ const Filter = (props) => {
             >Uncompleted</button>
         </div>
     );
-};
 
 export default Filter;
